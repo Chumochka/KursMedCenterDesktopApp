@@ -1,0 +1,90 @@
+﻿<Page x:Class="MedCenter.Pages.AppointmentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MedCenter.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AppointmentsPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="56"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Background="#244AD2">
+            <Image Width="45" Height="45" HorizontalAlignment="Center" Margin="5" Source="pack://application:,,,/Resources/logo.png"/>
+        </StackPanel>
+
+        <TextBox Name="tbSearch" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,5,0" TextChanged="tbSearch_TextChanged"/>
+        <ComboBox Name="cmbSorting" Grid.Row="1" Grid.Column="1" SelectedIndex="0" VerticalAlignment="Center" Margin="5,0,5,0" SelectionChanged="cmbSorting_SelectionChanged">
+            <ComboBoxItem Content="Без сортировки"/>
+            <ComboBoxItem Content="По пациенту"/>
+            <ComboBoxItem Content="По доктору"/>
+            <ComboBoxItem Content="По дате"/>
+            <ComboBoxItem Content="По кабинету"/>
+        </ComboBox>
+        <ComboBox Name="cmbFilter" Grid.Row="1" Grid.Column="2" SelectedIndex="0" Margin="5,0,5,0" VerticalAlignment="Center" SelectionChanged="cmbFilter_SelectionChanged">
+            <ComboBoxItem Content="Все записи"/>
+            <ComboBoxItem Content="С датой"/>
+            <ComboBoxItem Content="Без даты"/>
+        </ComboBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="txtResultAmount"/>
+            <TextBlock Text="из"/>
+            <TextBlock x:Name="txtAllAmount"/>
+        </StackPanel>
+        <ListView Name="LViewAppointment" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="5,5,5,5" d:ItemsSource="{d:SampleData ItemCount=1}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <StackPanel Grid.Column="1" Margin="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Врач:"/>
+                                    <TextBlock Text="{Binding specialization}"/>
+                                    <TextBlock Text="{Binding doctor_fullname}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Пациент:"/>
+                                    <TextBlock Text="{Binding patient_fullname}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Время приема:"/>
+                                    <TextBlock Text="{Binding date}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Кабинет:"/>
+                                    <TextBlock Text="{Binding cabinet}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ContextMenu>
+                <ContextMenu Name="contextMenu">
+                    <MenuItem Name="btnEditAppointment" Header="Редактировать запись" Click="btnEditAppointment_Click"/>
+                    <MenuItem Name="btnDeleteAppointment" Header="Удалить запись" Click="btnDeleteAppointment_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+        <Button x:Name="btnAddAppointment" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Right" Content="Добавить запись" Width="200" Click="btnAddAppointment_Click"/>
+    </Grid>
+</Page>
