@@ -34,6 +34,9 @@
                     <TextBlock Text="Доктор:"/>
                     <ComboBox x:Name="cbDoctor" DisplayMemberPath="fullname" SelectedValuePath="id_worker" SelectedValue="{Binding Doctor.id_worker}" IsEnabled="False"/>
 
+                    <TextBlock Text="Желаемое время приема:"/>
+                    <TextBox x:Name="tbDateWish" Text="{Binding date_wish}"/>
+                    
                     <TextBlock Text="Дата приема"/>
                     <DatePicker Name="datePicker" SelectedDate="{Binding date}"/>
 
