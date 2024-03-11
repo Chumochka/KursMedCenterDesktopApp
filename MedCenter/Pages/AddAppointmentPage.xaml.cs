@@ -45,6 +45,7 @@ namespace MedCenter.Pages
                 {
                     cbDoctor.IsEnabled = true;
                     cbDoctor.ItemsSource = JsonConvert.DeserializeObject<List<Worker>>(request_client.GetRequest("doctorspecialization?id_specialization="+appointment.Doctor.id_specialization));
+                    dgDiaryEntries.ItemsSource = JsonConvert.DeserializeObject<List<Diary_Entrie>>(request_client.GetRequest("diary?id="+appointment.id_appointment));
                     if(appointment.date != null)
                         tbTime.Text = ((DateTime)appointment.date).ToString("HH:mm");
                 }catch (Exception ex)

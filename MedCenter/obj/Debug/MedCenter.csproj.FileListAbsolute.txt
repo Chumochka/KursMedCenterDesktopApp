@@ -24,3 +24,7 @@ C:\Users\DANILA\source\repos\MedCenter\MedCenter\obj\Debug\Pages\AppointmentsPag
 C:\Users\DANILA\source\repos\MedCenter\MedCenter\obj\Debug\Pages\AppointmentsPage.baml
 C:\Users\DANILA\source\repos\MedCenter\MedCenter\obj\Debug\Pages\AddAppointmentPage.g.cs
 C:\Users\DANILA\source\repos\MedCenter\MedCenter\obj\Debug\Pages\AddAppointmentPage.baml
+C:\Users\DANILA\source\repos\MedCenter\MedCenter\bin\Debug\MedCenter.exe.manifest
+C:\Users\DANILA\source\repos\MedCenter\MedCenter\bin\Debug\MedCenter.application
+C:\Users\DANILA\source\repos\MedCenter\MedCenter\obj\Debug\MedCenter.exe.manifest
+C:\Users\DANILA\source\repos\MedCenter\MedCenter\obj\Debug\MedCenter.application

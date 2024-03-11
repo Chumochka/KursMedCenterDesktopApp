@@ -10,7 +10,7 @@ namespace MedCenter.Models
     {
         public int id_appointment { get; set; }
         public DateTime date { get; set; }
-        public string desctiption { get; set; }
+        public string description { get; set; }
         public virtual Appointment appointment { get; set; }
     }
 }

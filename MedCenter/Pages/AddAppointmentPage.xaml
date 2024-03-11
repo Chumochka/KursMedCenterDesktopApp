@@ -46,6 +46,25 @@
                     <TextBlock Text="Кабинет"/>
                     <TextBox x:Name="tbCabinet" Text="{Binding cabinet}"/>
 
+                    <DataGrid x:Name="dgDiaryEntries" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="False" AutoGenerateColumns="False" CanUserReorderColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Дата записи">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding date}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Описание записи">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding description}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
                     <Button Name="btnSaveAppointment" Content="Сохранить" Width="200" Click="btnSaveAppointment_Click"/>
                 </StackPanel>
             </Grid>
