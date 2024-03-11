@@ -11,7 +11,7 @@ namespace MedCenter
 {
     public class fetchData
     {
-        string site = "http://localhost:8000/";
+        string site = "https://e270-37-193-14-146.ngrok-free.app/";
         public string GetRequest(string url_string)
         {
             using(var client = new HttpClient())
